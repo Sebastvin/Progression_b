@@ -1,6 +1,7 @@
-from core import *
+from tkinter import *
 import re
 import requests
+from tkinter import ttk
 
 url ='https://api.exchangerate-api.com/v4/latest/USD'
 
@@ -37,6 +38,7 @@ class ConverterCurrencies(Frame):
                                   validatecommand=valid)
         self.converted_amount_field_label = Label(self, text='', fg='black', bg='white', relief=RIDGE,
                                                   justify=CENTER, width=17, borderwidth=3)
+
         self.from_currency_variable = StringVar(self)
         self.from_currency_variable.set("PLN")  # default value
         self.to_currency_variable = StringVar(self)
