@@ -1,5 +1,6 @@
 from converter import *
 from crypto import *
+from ipo_calendar import *
 from tkinter import *
 from tkinter import ttk
 
@@ -16,8 +17,10 @@ class App(Tk):
     def add_tab(self):
         tab = ConverterCurrencies(self.notebook)
         tab2 = Crypto(self.notebook)
+        tab3 = IPO(self.notebook)
         self.notebook.add(tab, text="Converter")
         self.notebook.add(tab2, text="CRYPTO")
+        self.notebook.add(tab3, text="IPO Calendar")
 
 
 if __name__ == '__main__':
