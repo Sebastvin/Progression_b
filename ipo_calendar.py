@@ -44,8 +44,6 @@ class IPO(Frame):
                             borderwidth=3).place(x=640, y= tmp)
             tmp += 50
 
-        print(len(get_ipo_info(self)))
-
 
 
 
