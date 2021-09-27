@@ -1,38 +1,20 @@
-#0.6
-import tkinter as tk
+#0.7
+import tkinter
 
-class Example(tk.Frame):
-    def __init__(self, parent):
+master=tkinter.Tk()
+master.title("pack() method")
+master.geometry("450x350")
 
-        tk.Frame.__init__(self, parent)
-        self.canvas = tk.Canvas(self, borderwidth=0, background="#ffffff")
-        self.frame = tk.Frame(self.canvas, background="#ffffff")
-        self.vsb = tk.Scrollbar(self, orient="vertical", command=self.canvas.yview)
-        self.canvas.configure(yscrollcommand=self.vsb.set)
+button1=tkinter.Button(master, text="LEFT")
+button1.pack(side=tkinter.LEFT)
 
-        self.vsb.pack(side="right", fill="y")
-        self.canvas.pack(side="left", fill="both", expand=True)
-        self.canvas.create_window((4,4), window=self.frame, anchor="nw",
-                                  tags="self.frame")
+button2=tkinter.Button(master, text="RIGHT")
+button2.pack(side=tkinter.RIGHT)
 
-        self.frame.bind("<Configure>", self.onFrameConfigure)
+button3=tkinter.Button(master, text="TOP")
+button3.pack(side=tkinter.TOP)
 
-        self.populate()
+button4=tkinter.Button(master, text="BOTTOM")
+button4.pack(side=tkinter.BOTTOM)
 
-    def populate(self):
-        '''Put in some fake data'''
-        for row in range(120):
-            tk.Label(self.frame, text="%s" % row, width=3, borderwidth="1",
-                     relief="solid").grid(row=row, column=0)
-            t="this is the second column for row %s" %row
-            tk.Label(self.frame, text=t).grid(row=row, column=1)
-
-    def onFrameConfigure(self, event):
-        '''Reset the scroll region to encompass the inner frame'''
-        self.canvas.configure(scrollregion=self.canvas.bbox("all"))
-
-if __name__ == "__main__":
-    root=tk.Tk()
-    example = Example(root)
-    example.pack(side="top", fill="both", expand=True)
-    root.mainloop()
+master.mainloop()

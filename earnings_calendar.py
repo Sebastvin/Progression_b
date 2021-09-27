@@ -7,37 +7,38 @@ class EarningsCalendar(Frame):
     def __init__(self, *args, **kwargs):
         Frame.__init__(self, *args, **kwargs)
 
-        font = ('Courier', 15, 'bold')
+        fonty = ('Courier', 15, 'bold')
+        font = ('Courier', 10, 'bold')
 
         self.title = Label(self, text="Earnings Calendar", bg='grey', fg='white', relief=RAISED, borderwidth=3,
-                          font=font).place(x=300, y=10)
+                          font=fonty).place(x=300, y=10)
 
         self.symbol = Label(self, text="SYMBOL", bg='grey', fg='white', relief=RAISED, borderwidth=3, font=font).place(
-            x=15, y = 50)
+            x=0, y = 50)
 
         self.name = Label(self, text="NAME", bg='grey', fg='white', relief=RAISED, borderwidth=3, font=font).place(
-            x=100, y = 50)
+            x=260, y = 50)
 
         self.reportDate = Label(self, text="REPORT DATE", bg='grey', fg='white', relief=RAISED, borderwidth=3,
-                              font=font).place(x=160, y = 50)
-
-        self.fiscalDataEnding = Label(self, text="Fiscal Data Ending ", bg='grey', fg='white', relief=RAISED,
-                                      borderwidth=3,
-                              font=font).place(x=300, y = 50)
-
-        self.estimate = Label(self, text="ESTIMATE", bg='grey', fg='white', relief=RAISED, borderwidth=3,
                               font=font).place(x=490, y = 50)
 
+        #self.fiscalDataEnding = Label(self, text="FSD", bg='grey', fg='white', relief=RAISED,
+        #                             borderwidth=3, font=font).place(x=570, y = 50)
+
+        self.estimate = Label(self, text="ESTIMATE", bg='grey', fg='white', relief=RAISED, borderwidth=3,
+                              font=font).place(x=610, y = 50)
+
         self.currency = Label(self, text="CURRENCY", bg='grey', fg='white', relief=RAISED, borderwidth=3,
-                              font=font).place(x=500, y = 50)
+                              font=font).place(x=690, y = 50)
 
 
 
 
-        scrollbar = Scrollbar(self, width=15)
-        scrollbar.pack(side=LEFT, fill=Y, pady=100)
+        scrollbar = Scrollbar(self, width=35)
+        scrollbar.place(x=760, y=100, height=374)
 
-        mylist = Listbox(self, yscrollcommand = scrollbar.set)
+        god= ('Courier', 10, 'normal')
+        mylist = Listbox(self, yscrollcommand = scrollbar.set, font=god)
 
         CSV_URL = 'https://www.alphavantage.co/query?function=EARNINGS_CALENDAR&horizon=3month&apikey=demo'
 
@@ -49,14 +50,26 @@ class EarningsCalendar(Frame):
 
         del my_list[0]
 
+
+
         for row in my_list:
-            mylist.insert(END, f"{row[0][:10]} | {row[1]} | {row[2]} | {row[3]} | {row[4]} | {row[5]}")
-            mylist.insert(END, "----------------")
+
+            mylist.insert(END, "{:<5} | {:<50} | {:<13} | {:<8} | {:<10}".format(
+                row[0], ' '.join(row[1].split()[:8]), row[2],row[4], row[5]))
+            mylist.insert(END,
+                         "------|----------------------------------------------------|---------------|----------|--------")
+
 
 
         scrollbar.config(command=mylist.yview)
-        mylist.pack(side=LEFT, fill=BOTH, pady= 100, ipady=30, ipadx=300)
+        mylist.pack(side=LEFT, fill=BOTH, pady= 100, ipady=100, ipadx=300)
 
+def get_len(list, long):
+    tmp = ''
+    for x in range(0, long - len(list)):
+        tmp += '-'
+
+    return tmp
 
 
 
