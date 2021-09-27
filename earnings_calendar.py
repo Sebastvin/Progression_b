@@ -62,7 +62,7 @@ class EarningsCalendar(Frame):
 
 
         scrollbar.config(command=mylist.yview)
-        mylist.pack(side=LEFT, fill=BOTH, pady= 100, ipady=100, ipadx=300)
+        mylist.pack(side=LEFT, fill=BOTH, pady= 100, ipady=550, ipadx=300)
 
 def get_len(list, long):
     tmp = ''
@@ -70,9 +70,3 @@ def get_len(list, long):
         tmp += '-'
 
     return tmp
-
-
-
-
-
-

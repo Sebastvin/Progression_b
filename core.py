@@ -9,11 +9,11 @@ from tkinter import ttk
 class App(Tk):
     def __init__(self, *args, **kwargs):
         Tk.__init__(self, *args, **kwargs)
+        self.title("Finance Informator")
         self.notebook = ttk.Notebook()
-        self.geometry("800x500")
+        self.geometry("811x600")
         self.add_tab()
-        self.notebook.grid(row = 0)
-        self.notebook.grid(row = 1, column = 0, sticky = W, pady = 2)
+        self.notebook.pack()
 
     def add_tab(self):
         tab = ConverterCurrencies(self.notebook)
