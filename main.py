@@ -1,4 +1,7 @@
-#0.8
-# TODO: full name currency
+#0.9
+# TODO: IPO calendar to small labels to fix
 # TODO: improve design
-# TODO: info label in IPO Calendar
+# TODO: info label in crypto
+# TODO: earnings calendar width to fix
+
+
