@@ -22,9 +22,6 @@ class EarningsCalendar(Frame):
         self.reportDate = Label(self, text="REPORT DATE", bg='grey', fg='white', relief=RAISED, borderwidth=3,
                               font=font).place(x=490, y = 50)
 
-        #self.fiscalDataEnding = Label(self, text="FSD", bg='grey', fg='white', relief=RAISED,
-        #                             borderwidth=3, font=font).place(x=570, y = 50)
-
         self.estimate = Label(self, text="ESTIMATE", bg='grey', fg='white', relief=RAISED, borderwidth=3,
                               font=font).place(x=610, y = 50)
 
@@ -55,7 +52,7 @@ class EarningsCalendar(Frame):
         for row in my_list:
 
             mylist.insert(END, "{:<5} | {:<50} | {:<13} | {:<8} | {:<10}".format(
-                row[0], ' '.join(row[1].split()[:8]), row[2],row[4], row[5]))
+                row[0], ' '.join(row[1].split()[:7]), row[2],row[4], row[5]))
             mylist.insert(END,
                          "------|----------------------------------------------------|---------------|----------|--------")
 

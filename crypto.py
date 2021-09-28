@@ -15,13 +15,26 @@ class Crypto(Frame):
         self.real_curr_codes = ['USD', 'EUR', 'JPY', 'GBP', 'CHF', 'CAD', 'AUD', 'CHF', 'CNY', 'PLN']
         self.digital_curr_codes = ['BTC', 'ETH', 'XLM', 'BNB', 'ADA', 'DOGE', 'XRP', 'LTC', 'BCH', 'DOT', 'BUSD']
 
+        self.none_a = Label(self) # empty row 0
+        self.none_b = Label(self)  # empty row 3
+        self.none_c = Label(self)  # empty row 4
 
-        self.main =             Label(self, text='KRYPTOBOI', bg='grey', fg='white', relief=RAISED, borderwidth=3, font=font)
+
+        self.title = Label(self, text='Cryptocurrencis', bg='grey', fg='white', relief=RAISED,borderwidth=3, font=font)
+        self.title.place(x=300,y=10)
+
+        self.info = Label(self, width =13, text="INFORMATION", bg='black', fg='white', relief=RAISED, borderwidth=3,\
+                                                                                                             font=font)
+        self.info.place(x=313, y=90)
+
+        self.data = Label(self, text="-------------------------------", relief=SUNKEN, borderwidth=5)
+        self.data.place(x=313, y=130)
+
         self.info_label_start = Label(self, text='1 NONE cost', font=('Courier', 10, 'bold'))
         self.info_label_end =   Label(self, text='', font=('Courier', 10, 'bold'))
 
 
-        self.data =             Label(self, text="Check data", relief=SUNKEN, borderwidth=5)
+
         self.price =            Label(self, text='', fg='black', bg='white', relief=RIDGE, justify=CENTER, width=17, borderwidth=3)
 
         self.bid_price =        Label(self, text="Bid Price:", font=('Courier', 10, 'bold'))
@@ -38,7 +51,7 @@ class Crypto(Frame):
 
         self.code_label =       Label(self, text="Type your cyptro code: ")
         self.curr_label =       Label(self, text="Type currency what you want: ")
-        self.main_title =       Label(self, text="Info", bg='black', fg='white', relief=RAISED, borderwidth=3, font=font)
+
 
 
 
@@ -62,9 +75,11 @@ class Crypto(Frame):
 
 
 
-        ######################################################################
+        ################  SETTING UP ON THE GRID  #######################
 
-        self.main.grid              (row=1, column=2, padx=10, pady=10)
+        self.none_a.grid            (row=1, column=0, padx=10, pady=10)
+        self.none_b.grid            (row=3, column=0, padx=10, pady=10)
+        self.none_c.grid            (row=4, column=0, padx=10, pady=10)
 
         self.code_label.grid        (row=2, column=0, padx=10, pady=10)
         self.curr_label.grid        (row=2, column=2, padx=10, pady=10)
@@ -72,9 +87,7 @@ class Crypto(Frame):
         self.digital_curr_butt.grid (row=2, column=1, padx=10, pady=10)
         self.check_button.grid      (row=2, column=4, padx=30, pady=10)
 
-        self.main_title.grid        (row=3, column=2, padx=10, pady=10)
 
-        self.data.grid              (row=4, column=2, padx=10, pady=10)
 
         self.price.grid             (row=5, column=1, padx=0, pady=10)
         self.info_label_start.grid  (row=5, column=0, padx=0, pady=10)

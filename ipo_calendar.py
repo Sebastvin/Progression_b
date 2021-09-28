@@ -9,42 +9,39 @@ class IPO(Frame):
 
         font = ('Courier', 15, 'bold')
 
-        self.title =    Label(self, text="IPO Calendar", relief= RAISED, bg='grey', fg='white', borderwidth=3,
-                              font=font).place(x=300,y=10)
+        self.title = Label(self, text="IPO Calendar", relief= RAISED, bg='grey', fg='white', borderwidth=3,font=font)
+        self.title.place(x=300,y=10)
 
-        self.symbol =   Label(self, text="Symbol", relief=RAISED, bg='grey', fg='white', borderwidth=3, font=font
-                           ).place(x=50, y=70)
+        self.symbol = Label(self, text="Symbol", relief=RAISED, bg='grey', fg='white', borderwidth=3, font=font)
+        self.symbol.place(x=50, y=70)
 
-        self.name =     Label(self, text="Name", relief = RAISED, bg='grey', fg='white', borderwidth=3,
-                              font=font).place(x=300, y=70)
+        self.name = Label(self, text="Name", relief = RAISED, bg='grey', fg='white', borderwidth=3, font=font)
+        self.name.place(x=300, y=70)
 
-        self.ipoData =  Label(self, text="IPO Data", relief=RAISED, bg='grey', fg='white', borderwidth=3,
-                             font=font).place(x=480, y=70)
+        self.ipoData =  Label(self, text="IPO Data", relief=RAISED, bg='grey', fg='white', borderwidth=3,font=font)
+        self.ipoData.place(x=510, y=70)
 
-        self.exchange = Label(self, text="Exchange", relief=RAISED, bg='grey', fg='white', borderwidth=3,
-                              font=font).place(x=650, y=70)
+        self.exchange = Label(self, text="Exchange", relief=RAISED, bg='grey', fg='white', borderwidth=3,font=font)
+        self.exchange.place(x=650, y=70)
 
 
         data = get_ipo_info(self)
-        tmp = 130
+        tmp = 120
 
         for x in range(1, len(data)):
-            symbol = Label(self, text=f'{data[x][0]}', fg='black', bg='white', relief=RIDGE, justify=CENTER, width=17,
-                            borderwidth=3).place(x=30, y= tmp)
+            if x <=10:
+                Label(self, text=f'{data[x][0]}', fg='black', bg='white', relief=RIDGE, justify=CENTER, width=17,
+                      borderwidth=3).place(x=30, y=tmp)
 
-            name = Label(self, text=f"{' '.join(data[x][1].split()[:6])}", fg='black', bg='white', relief=RIDGE,
-                         justify=CENTER,
-                         width=40,
-                            borderwidth=3).place(x=170, y= tmp)
+                Label(self, text=f"{' '.join(data[x][1].split()[:6])}", fg='black', bg='white', relief=RIDGE,justify=CENTER,
+                              width=45,borderwidth=3).place(x=170, y=tmp)
 
-            ipoData = Label(self, text=f'{data[x][2]}', fg='black', bg='white', relief=RIDGE, justify=CENTER, width=17,
-                            borderwidth=3).place(x=470, y= tmp)
+                Label(self, text=f'{data[x][2]}', fg='black', bg='white', relief=RIDGE, justify=CENTER, width=17,
+                              borderwidth=3).place(x=500, y=tmp)
 
-            exchange = Label(self, text=f'{data[x][6]}', fg='black', bg='white', relief=RIDGE, justify=CENTER, width=17,
-                            borderwidth=3).place(x=640, y= tmp)
-            tmp += 50
-
-
+                Label(self, text=f'{data[x][6]}', fg='black', bg='white', relief=RIDGE, justify=CENTER, width=17,
+                                 borderwidth=3).place(x=640, y=tmp)
+                tmp += 45
 
 
 def get_ipo_info(self,):
