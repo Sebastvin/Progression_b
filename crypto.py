@@ -8,7 +8,7 @@ from tkinter import ttk
 class Crypto(Frame):
     def __init__(self, name, *args, **kwargs):
         Frame.__init__(self, *args, **kwargs)
-
+        self.configure(bg='black')
         font = ('Courier', 15, 'bold')
 
 

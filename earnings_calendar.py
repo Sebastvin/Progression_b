@@ -6,6 +6,7 @@ import requests
 class EarningsCalendar(Frame):
     def __init__(self, *args, **kwargs):
         Frame.__init__(self, *args, **kwargs)
+        self.configure(bg='black')
 
         fonty = ('Courier', 15, 'bold')
         font = ('Courier', 10, 'bold')

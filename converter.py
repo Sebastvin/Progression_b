@@ -27,6 +27,7 @@ class RealTimeCurrencyConverter():
 class ConverterCurrencies(Frame):
     def __init__(self, *args, **kwargs):
         Frame.__init__(self, *args, **kwargs)
+        self.configure(bg='black')
         font = ("Courier", 12, "bold")
         self.currency_converter = RealTimeCurrencyConverter(url)
 
