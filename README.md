@@ -20,4 +20,4 @@ Demo video:
 
 Screen from app:
 <br />
-<img src="https://raw.githubusercontent.com/Sebastvin/gwindow-application-api-using/demo.png" alt="application windows app"/>
+<img src="https://github.com/Sebastvin/window-application-api-using/blob/main/demo.png" alt="application windows app"/>
