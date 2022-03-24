@@ -20,6 +20,12 @@ def restrictNumberOnly(action, string):
     return string == "" or (string.count('.') <= 1 and result is not None)
 
 
+def restrictNumberOnly(action, string):
+    regex = re.compile(r"[A-Za-z]*$")
+    result = regex.match(string)
+    return string == "" or (string.count('.') <= 1 and result is not None)
+
+
 class Crypto(Frame):
     def __init__(self, name, *args, **kwargs):
         Frame.__init__(self, *args, **kwargs)
@@ -56,10 +62,17 @@ class Crypto(Frame):
         self.ask_price = Label(self, text="Ask Price:", font=('Courier', 10, 'bold'))
         self.ask_price_data = Label(self, text='', fg='black', bg='white', relief=RIDGE, justify=CENTER, width=17,
                                     borderwidth=3)
+
         self.ask_price_end = Label(self, text="", font=('Courier', 10, 'bold'))
         self.warning_label = Label(self, bg='white',
                                    text="The program uses a free API. You can check calls only 5 times per "
                                         "minute, after this time the counter restarts. Daily limit is 500 calls.")
+
+        self.code_label =       Label(self, text="Type your crypto code: ")
+        self.curr_label =       Label(self, text="Type currency what you want: ")
+
+
+
 
         self.code_label = Label(self, text="Type your cyptro code: ")
         self.curr_label = Label(self, text="Type currency what you want: ")
@@ -120,3 +133,4 @@ class Crypto(Frame):
 
         self.ask_price_data.config(text=f"{round(float(data['9. Ask Price']), 2)}")
         self.ask_price_end.config(text=f"{data['4. To_Currency Name']}, ({data['3. To_Currency Code']})")
+
